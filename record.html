@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司電腦購買紀錄</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { 
+                width: 210mm; 
+                margin: 0 auto;
+                padding: 10mm;
+            }
+            .container { 
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+        }
+        @media screen {
+            .container { 
+                max-width: 210mm;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen py-8">
+    <div class="container mx-auto px-4 max-w-7xl">
+        <!-- 標題 -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">公司電腦購買紀錄</h1>
+            <p class="text-gray-600 mb-4">2025年6月 - 2026年1月</p>
+            <div class="no-print">
+                <a href="index.html" class="text-blue-600 hover:text-blue-800 underline">← 返回分析報告</a>
+            </div>
+        </div>
+
+        <!-- 2025/06/13 - MIS工作開發機 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">2025/06/13 - MIS工作開發機 (Python開發用)</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">品名</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">產品名稱</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">備註</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">數量</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">小計</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 text-sm">處理器 CPU</td><td class="px-4 py-3 text-sm">Intel Core Ultra 7 265K【20核】3.9G(↑5.5G)/30M/內顯Xe-core/無風扇【代理盒】</td><td class="px-4 py-3 text-sm">Intel Core Ultra 200S系列1851腳位【內建NPU支援AI】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$9,950</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">主機板 MB</td><td class="px-4 py-3 text-sm">華碩 TUF GAMING B860-PLUS WIFI(ATX/LAN2.5Gb+Wi-Fi 7/註五年)12+1+2+1相</td><td class="px-4 py-3 text-sm">Intel B860 / 1851腳位(DDR5)</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$6,790</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">記憶體 RAM</td><td class="px-4 py-3 text-sm">金士頓 64GB(雙通32GB*2) DDR5-5600/CL36 FURY Beast 黑 (獸獵者)【雙參數】</td><td class="px-4 py-3 text-sm">桌上型記憶體 DDR5 雙通道</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,800</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">固態硬碟 M.2 SSD</td><td class="px-4 py-3 text-sm">美光 Micron Crucial T705 2TB含散熱片 Gen5 PCIe 5.0 讀:14500/寫:12700/TLC【五年保】</td><td class="px-4 py-3 text-sm">M.2 PCIe 5.0 (Gen5) SSD固態硬碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$8,088</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">企業硬碟 HDD</td><td class="px-4 py-3 text-sm">WD 2TB【金標】128MB/7200轉/五年保(WD2005FBYZ)</td><td class="px-4 py-3 text-sm">3.5吋 SATA3 企業碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,190</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">散熱器</td><td class="px-4 py-3 text-sm">利民 Peerless Assassin 120 MINI 黑化版/6導管/雙塔單扇/高13.5cm【WXHZ】</td><td class="px-4 py-3 text-sm">利民 Thermalright(索摩樂) 散熱器</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,250</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">機殼</td><td class="px-4 py-3 text-sm">Montech Air 1000 LITE 黑 顯卡長34/CPU高16.5/側掀玻璃側板/ATX</td><td class="px-4 py-3 text-sm">君主 Montech 機殼</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,490</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">電源供應器</td><td class="px-4 py-3 text-sm">華碩 TUF GAMING 650W 銅牌/直出線/雙滾珠風扇/智慧停轉/防潮塗層/6年保</td><td class="px-4 py-3 text-sm">華碩 ASUS【0800到府收送】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$2,490</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">作業系統</td><td class="px-4 py-3 text-sm">Windows 11 Pro 中文專業彩盒版 64位元 (網域/遠端/加密/Hyper-V/USB)【搭購價】</td><td class="px-4 py-3 text-sm">Microsoft Windows 11 彩盒版</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$6,490</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p class="text-lg font-bold text-gray-800">總計：<span class="text-green-600">$44,538</span> (原價$45,538，任搭優惠省$1,000)</p>
+                <p class="text-sm text-gray-600 mt-2"><strong>訂單編號：</strong>#250613012</p>
+                <p class="text-sm text-gray-600"><strong>分配：</strong>楊翔志</p>
+            </div>
+        </div>
+
+        <!-- 2025/07/16 - 文書機 (x5台) -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">2025/07/16 - 文書機 (x5台)</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">品名</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">產品名稱</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">備註</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">單價</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 text-sm">處理器 CPU</td><td class="px-4 py-3 text-sm">Intel Core Ultra 5 225【10核】3.3G(↑4.9G)/20M/內顯Xe-core【代理盒裝】</td><td class="px-4 py-3 text-sm">Intel Core Ultra 200S系列1851腳位【內建NPU支援AI】</td><td class="px-4 py-3 text-sm font-semibold">$6,900</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">主機板 MB</td><td class="px-4 py-3 text-sm">華碩 PRIME B860M-A WIFI-CSM(M-ATX/LAN2.5Gb+無線/註四年)7+1+1+1相</td><td class="px-4 py-3 text-sm">Intel B860 / 1851腳位(DDR5)</td><td class="px-4 py-3 text-sm font-semibold">$3,990</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">記憶體 RAM</td><td class="px-4 py-3 text-sm">金士頓 32GB(雙通16GB*2) DDR5-5600/CL36 FURY Beast黑【雙參數】</td><td class="px-4 py-3 text-sm">桌上型記憶體 DDR5 雙通道</td><td class="px-4 py-3 text-sm font-semibold">$2,700</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">固態硬碟 M.2 SSD</td><td class="px-4 py-3 text-sm">金士頓 FURY Renegade 500G/Gen4 PCIe 4.0/讀:7300/寫:3900/TLC【五年保】</td><td class="px-4 py-3 text-sm">M.2 PCIe 4.0 (Gen4) SSD固態硬碟</td><td class="px-4 py-3 text-sm font-semibold">$1,780</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">傳統硬碟 HDD</td><td class="px-4 py-3 text-sm">WD 2TB【藍標】(256M/7200轉/三年保)(WD20EZBX)</td><td class="px-4 py-3 text-sm">3.5吋 SATA3 傳統碟</td><td class="px-4 py-3 text-sm font-semibold">$1,990</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">機殼+電源</td><td class="px-4 py-3 text-sm">Montech Air 100 LITE 黑/玻璃透側/M-ATX + GAMMA II 550W/金牌電源</td><td class="px-4 py-3 text-sm">君主 Montech 機殼</td><td class="px-4 py-3 text-sm font-semibold">$2,850</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p class="text-lg font-bold text-gray-800">總計：<span class="text-green-600">$20,210/台</span></p>
+                <p class="text-sm text-gray-600 mt-2"><strong>訂單編號：</strong>#2507160071</p>
+                <p class="text-sm text-gray-600"><strong>分配：</strong>潘子傑 / 李承璋Gary / 徐宗裕 / 曾琪晏 小呆 / 伍家薰兒（共5台）</p>
+            </div>
+        </div>
+
+        <!-- 2025/08/13 - 電商工作機 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">2025/08/13 - 電商工作機 (粉色/64G RAM/大量分頁專用)</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">品名</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">產品名稱</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">備註</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">數量</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">小計</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 text-sm">處理器 CPU</td><td class="px-4 py-3 text-sm">Intel Core Ultra 7 265K【20核】3.9G(↑5.5G)/30M/內顯Xe-core/無風扇【代理盒】</td><td class="px-4 py-3 text-sm">Intel Core Ultra 200S系列1851腳位【內建NPU支援AI】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$9,900</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">主機板 MB</td><td class="px-4 py-3 text-sm">技嘉 B860M AORUS ELITE WIFI6E ICE(M-ATX/LAN2.5G+無線)12+1+2相</td><td class="px-4 py-3 text-sm">Intel B860 / 1851腳位(DDR5)</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,990</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">記憶體 RAM</td><td class="px-4 py-3 text-sm">威剛 64GB(雙通32GB*2) DDR5 5600 XPG Lancer RGB/CL36 白【雙參數】</td><td class="px-4 py-3 text-sm">桌上型記憶體 DDR5 雙通道</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$5,499</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">贈品</td><td class="px-4 py-3 text-sm">ADATA Legend 710 512G SSD</td><td class="px-4 py-3 text-sm">RAM加購贈送</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$0</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">固態硬碟 M.2 SSD</td><td class="px-4 py-3 text-sm">美光 Micron Crucial T705 1TB Gen5 PCIe 5.0 讀:13600/寫:10200/TLC【五年保】</td><td class="px-4 py-3 text-sm">M.2 PCIe 5.0 (Gen5) SSD固態硬碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,778</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">傳統硬碟 HDD</td><td class="px-4 py-3 text-sm">WD 2TB【藍標】(256M/7200轉/三年保)(WD20EZBX)</td><td class="px-4 py-3 text-sm">3.5吋 SATA3 傳統碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,980</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">散熱器</td><td class="px-4 py-3 text-sm">喬思伯 PISA A5 白 散熱器/5導管/高15.3/ARGB/底部輔助鰭片/TDP:265【WXHZ】</td><td class="px-4 py-3 text-sm">喬思伯 Jonsbo 散熱器</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$899</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">機殼</td><td class="px-4 py-3 text-sm">darkFlash MOTI mini 粉 顯卡長32.2/CPU高18/定光RGB扇*5/全景玻璃透側/M-ATX</td><td class="px-4 py-3 text-sm">大飛 darkFlash 機殼</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,590</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">電源供應器</td><td class="px-4 py-3 text-sm">華碩 TUF GAMING 550W 銅牌/直出線/雙滾珠風扇/智慧停轉/防潮塗層/6年保</td><td class="px-4 py-3 text-sm">華碩 ASUS【0800到府收送】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,990</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p class="text-lg font-bold text-gray-800">總計：<span class="text-green-600">$31,626</span></p>
+                <p class="text-sm text-gray-600 mt-2"><strong>訂單編號：</strong>#2508130187</p>
+                <p class="text-sm text-gray-600"><strong>分配：</strong>電商 蔡依純（更換使用）</p>
+            </div>
+        </div>
+
+        <!-- 2025/10/08 - 伺服器 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">2025/10/08 - 伺服器</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">品名</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">產品名稱</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">備註</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">數量</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">小計</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 text-sm">電源供應器(搭購)</td><td class="px-4 py-3 text-sm">微星 MAG A750BN PCIE5 750W 雙8/銅牌/ATX3.0/5年保</td><td class="px-4 py-3 text-sm">-</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,790</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">處理器 CPU</td><td class="px-4 py-3 text-sm">AMD R7 9700X代理盒裝【8核/16緒】3.8G(↑5.5G)65W/具RDNA內顯</td><td class="px-4 py-3 text-sm">AMD AM5 9000系列</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$10,750</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">主機板 MB</td><td class="px-4 py-3 text-sm">華碩 TUF GAMING B850-PLUS WIFI(ATX/LAN2.5G+Wi-Fi 7/註五年)14+2+1相</td><td class="px-4 py-3 text-sm">AMD B850 / AM5腳位(DDR5)</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$6,990</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">記憶體 RAM</td><td class="px-4 py-3 text-sm">金士頓 32GB(雙通16GB*2) DDR5-5600/CL36 FURY Beast RGB黑【雙參數】</td><td class="px-4 py-3 text-sm">桌上型記憶體 DDR5 雙通道</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$3,500</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">固態硬碟 M.2 SSD</td><td class="px-4 py-3 text-sm">金士頓 FURY Renegade 500G/Gen4 PCIe 4.0/讀:7300/寫:3900/TLC【五年保】</td><td class="px-4 py-3 text-sm">M.2 PCIe 4.0 (Gen4) SSD固態硬碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,780</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">NAS硬碟 HDD</td><td class="px-4 py-3 text-sm">Seagate 8TB【那嘶狼】256M/5400轉/三年保/3年Rescue(ST8000VN002)</td><td class="px-4 py-3 text-sm">3.5吋 SATA3 NAS碟</td><td class="px-4 py-3 text-sm">3</td><td class="px-4 py-3 text-sm font-semibold">$19,770</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">散熱器</td><td class="px-4 py-3 text-sm">利民 Assassin X 120 R Digital 黑/4導管(6mm)/高15.1cm/溫度監控【WXHZ】</td><td class="px-4 py-3 text-sm">利民 Thermalright(索摩樂) 散熱器</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$890</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">機殼</td><td class="px-4 py-3 text-sm">視博通 SW437 顯卡長41.5(28)/CPU高16.4/多硬碟架構/前置Type-C/ATX</td><td class="px-4 py-3 text-sm">視博通 Superchannel 機殼</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,990</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p class="text-lg font-bold text-gray-800">總計：<span class="text-green-600">$47,460</span></p>
+                <p class="text-sm text-gray-600 mt-2"><strong>訂單編號：</strong>#2510080112</p>
+            </div>
+        </div>
+
+        <!-- 2025/12/23 - 文書機 (宇童、怡晴) -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">2025/12/23 - 文書機 (宇童、怡晴)</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">品名</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">產品名稱</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">備註</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">數量</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">小計</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 text-sm">處理器 CPU</td><td class="px-4 py-3 text-sm">Intel Core Ultra 5 245K【14核】4.2G(↑5.2G)/24M/內顯Xe-core/無風扇【代理盒】</td><td class="px-4 py-3 text-sm">Intel Core Ultra 200S系列1851腳位【內建NPU支援AI】</td><td class="px-4 py-3 text-sm">2</td><td class="px-4 py-3 text-sm font-semibold">$13,600</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">主機板 MB</td><td class="px-4 py-3 text-sm">華碩 TUF GAMING B860M-PLUS WIFI(M-ATX/LAN2.5Gb+Wi-Fi 7/註五年)12+1+2+1相</td><td class="px-4 py-3 text-sm">Intel B860 / 1851腳位(DDR5)</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$6,490</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">主機板 MB</td><td class="px-4 py-3 text-sm">技嘉 B860M AORUS ELITE WIFI6E ICE(冰魄白)(M-ATX/LAN2.5G+無線)12+1+2相</td><td class="px-4 py-3 text-sm">Intel B860 / 1851腳位(DDR5)</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$6,490</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">記憶體 RAM</td><td class="px-4 py-3 text-sm">金士頓 32GB(雙通16GB*2) DDR5-5600/CL36 FURY Beast RGB白【AI 雙模】</td><td class="px-4 py-3 text-sm">桌上型記憶體 DDR5 雙通道</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$9,100</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">記憶體 RAM</td><td class="px-4 py-3 text-sm">金士頓 32GB(雙通16GB*2) DDR5-5600/CL36 FURY Beast RGB黑【AI 雙模】</td><td class="px-4 py-3 text-sm">桌上型記憶體 DDR5 雙通道</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$9,100</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">固態硬碟 M.2 SSD</td><td class="px-4 py-3 text-sm">WD 黑標 SN850X 1TB/Gen4 PCIe 4.0/讀7300/寫6300/TLC/電競級【五年保】</td><td class="px-4 py-3 text-sm">M.2 PCIe 4.0 (Gen4) SSD固態硬碟</td><td class="px-4 py-3 text-sm">2</td><td class="px-4 py-3 text-sm font-semibold">$8,900</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">傳統硬碟 HDD</td><td class="px-4 py-3 text-sm">Seagate 4TB【新梭魚】(256M/5400轉/3年保) (ST4000DM004)</td><td class="px-4 py-3 text-sm">3.5吋 SATA3 傳統碟</td><td class="px-4 py-3 text-sm">2</td><td class="px-4 py-3 text-sm font-semibold">$8,980</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">散熱器</td><td class="px-4 py-3 text-sm">ID-COOLING FROZN A620 PRO SE ARGB 黑/6導管/雙塔雙扇/高15.7</td><td class="px-4 py-3 text-sm">ID-COOLING 散熱器【2年保固】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,290</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">散熱器</td><td class="px-4 py-3 text-sm">ID-COOLING FROZN A620 PRO SE ARGB 白/6導管/雙塔雙扇/高15.7</td><td class="px-4 py-3 text-sm">ID-COOLING 散熱器【2年保固】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,290</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">機殼</td><td class="px-4 py-3 text-sm">darkFlash MOTI mini 粉 顯卡長32.2/CPU高18/定光RGB扇*5/全景玻璃透側/M-ATX</td><td class="px-4 py-3 text-sm">大飛 darkFlash 機殼</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,590</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">機殼</td><td class="px-4 py-3 text-sm">darkFlash MOTI mini 黑 顯卡長32.2/CPU高18/定光RGB扇*5/全景玻璃透側/M-ATX</td><td class="px-4 py-3 text-sm">大飛 darkFlash 機殼</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,490</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">電源供應器</td><td class="px-4 py-3 text-sm">全漢 VITA GM 650W(MIT) 雙8/金牌/全模/ATX3.1/主日系/10年保</td><td class="px-4 py-3 text-sm">全漢 FSP 電源供應器【原價屋售出 2年快換】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$2,990</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">電源供應器</td><td class="px-4 py-3 text-sm">全漢 VITA GM 650W(MIT) 白色版 雙8/金牌/全模/ATX3.1/主日系/10年保</td><td class="px-4 py-3 text-sm">全漢 FSP 電源供應器【原價屋售出 2年快換】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$3,090</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p class="text-lg font-bold text-gray-800">總計：<span class="text-green-600">$74,300</span> (原價$74,400，優惠省$100)</p>
+                <p class="text-sm text-gray-600 mt-2"><strong>訂單編號：</strong>#2512230121</p>
+                <p class="text-sm text-gray-600"><strong>到貨日期：</strong>2026/01/02</p>
+                <p class="text-sm text-gray-600"><strong>分配：</strong>電商 宇童、怡晴</p>
+            </div>
+        </div>
+
+        <!-- 2025/12/30 - 文書機 (苡爭) -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">2025/12/30 - 文書機 (苡爭)</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">品名</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">產品名稱</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">備註</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">數量</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">小計</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 text-sm">處理器 CPU</td><td class="px-4 py-3 text-sm">AMD R5 8600G盒【6核/12緒】4.3G(↑5.0G)65W /RDNA 3內顯 /內建NPU支持AI</td><td class="px-4 py-3 text-sm">AMD AM5 8000系列</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$6,150</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">主機板 MB</td><td class="px-4 py-3 text-sm">[任搭U] 華碩 TUF GAMING B650M-PLUS WIFI(M-ATX/LAN 2.5G 無線)12 2 2相</td><td class="px-4 py-3 text-sm">AMD B650E & B650 / AM5腳位(DDR5)</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,790</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">記憶體 RAM</td><td class="px-4 py-3 text-sm">金士頓 32GB(雙通16GB*2) DDR5-5600/CL36 FURY Beast黑 限組裝</td><td class="px-4 py-3 text-sm">桌上型記憶體 DDR5 雙通道</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$8,800</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">固態硬碟 M.2 SSD</td><td class="px-4 py-3 text-sm">WD 黑標 SN850X 1TB/Gen4 PCIe 4.0/讀7300/寫6300/TLC/電競級【五年保】</td><td class="px-4 py-3 text-sm">M.2 PCIe 4.0 (Gen4) SSD固態硬碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,450</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">傳統硬碟 HDD</td><td class="px-4 py-3 text-sm">Seagate 4TB【新梭魚】(256M/5400轉/3年保) (ST4000DM004)</td><td class="px-4 py-3 text-sm">3.5吋 SATA3 傳統碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,490</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">散熱器</td><td class="px-4 py-3 text-sm">利民 Burst Assassin 120 /6導管(6mm)/高15.4cm</td><td class="px-4 py-3 text-sm">利民 Thermalright(索摩樂) 散熱器</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$990</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">機殼</td><td class="px-4 py-3 text-sm">華碩 Prime AP201 TG 白 顯卡長33.8/CPU高17/玻璃透側/前置Type-C/M-ATX</td><td class="px-4 py-3 text-sm">華碩 ASUS 機殼</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,990</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">電源供應器</td><td class="px-4 py-3 text-sm">華碩 TUF GAMING 550W 銅牌/直出線/雙滾珠風扇/防潮塗層/6年保</td><td class="px-4 py-3 text-sm">華碩 ASUS【0800到府收送】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,890</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p class="text-lg font-bold text-gray-800">總計：<span class="text-green-600">$33,550</span></p>
+                <p class="text-sm text-gray-600 mt-2"><strong>訂單編號：</strong>#2512290148</p>
+                <p class="text-sm text-gray-600"><strong>到貨日期：</strong>2026/01/03</p>
+                <p class="text-sm text-gray-600"><strong>分配：</strong>人資 廖苡爭</p>
+            </div>
+        </div>
+
+        <!-- 2026/01/10 - 文書機 (佩琦) -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">2026/01/10 - 文書機 (佩琦)</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">品名</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">產品名稱</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">備註</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">數量</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">小計</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 text-sm">處理器 CPU</td><td class="px-4 py-3 text-sm">AMD R5 8600G盒【6核/12緒】4.3G(↑5.0G)65W /RDNA 3內顯 /內建NPU支持AI</td><td class="px-4 py-3 text-sm">AMD AM5 8000系列</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$6,150</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">主機板 MB</td><td class="px-4 py-3 text-sm">[任搭U] 華碩 TUF GAMING B650M-PLUS WIFI(M-ATX/LAN 2.5G+無線)12+2+2相</td><td class="px-4 py-3 text-sm">AMD B650E & B650 / AM5腳位(DDR5)</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,790</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">記憶體 RAM</td><td class="px-4 py-3 text-sm">金士頓 32GB(雙通16GB*2) DDR5-5600/CL36 FURY Beast RGB黑</td><td class="px-4 py-3 text-sm">桌上型記憶體 DDR5 雙通道</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$10,300</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">固態硬碟 M.2 SSD</td><td class="px-4 py-3 text-sm">宏碁 Acer Predator GM7 1TB/Gen4/讀7200/寫6300/TLC/(單面設計)【五年保】</td><td class="px-4 py-3 text-sm">M.2 PCIe 4.0 (Gen4) SSD固態硬碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,699</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">傳統硬碟 HDD</td><td class="px-4 py-3 text-sm">Seagate 4TB【新梭魚】(256M/5400轉/3年保) (ST4000DM004)</td><td class="px-4 py-3 text-sm">3.5吋 SATA3 傳統碟</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$4,790</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">散熱器</td><td class="px-4 py-3 text-sm">利民 Assassin X 120 R Digital 黑/4導管(6mm)/高15.1cm/溫度監控</td><td class="px-4 py-3 text-sm">利民 Thermalright(索摩樂) 散熱器</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$890</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">機殼</td><td class="px-4 py-3 text-sm">華碩 Prime AP201 TG 黑 顯卡長33.8/CPU高17/玻璃透側/前置Type-C/M-ATX</td><td class="px-4 py-3 text-sm">華碩 ASUS 機殼</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,890</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">電源供應器</td><td class="px-4 py-3 text-sm">華碩 TUF GAMING 550W 銅牌/直出線/雙滾珠風扇/防潮塗層/6年保</td><td class="px-4 py-3 text-sm">華碩 ASUS【0800到府收送】</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$1,690</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">機殼風扇</td><td class="px-4 py-3 text-sm">振華 冰渦輪 12cm/DC直流散熱風扇/小3Pin/附轉接大4pin</td><td class="px-4 py-3 text-sm">機殼風扇 超值推薦</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm font-semibold">$85</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p class="text-lg font-bold text-gray-800">總計：<span class="text-green-600">$35,284</span></p>
+                <p class="text-sm text-gray-600 mt-2"><strong>訂單編號：</strong>#2601090164</p>
+                <p class="text-sm text-gray-600"><strong>分配：</strong>採購 黃佩琦（換新使用）</p>
+            </div>
+        </div>
+
+        <!-- 總覽 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">總覽</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">日期</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">用途</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">規格(RAM/SSD/HDD容量)</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">數量</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">使用者</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">總價</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr><td class="px-4 py-3 text-sm">2025/06/13</td><td class="px-4 py-3 text-sm">MIS工作開發機</td><td class="px-4 py-3 text-sm">64GB/2TB/2TB</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm">楊翔志</td><td class="px-4 py-3 text-sm font-semibold">$44,538</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">2025/07/16</td><td class="px-4 py-3 text-sm">文書機</td><td class="px-4 py-3 text-sm">32GB/500GB/2TB</td><td class="px-4 py-3 text-sm">5</td><td class="px-4 py-3 text-sm">潘子傑/李承璋Gary/徐宗裕/曾琪晏 小呆/伍家薰兒</td><td class="px-4 py-3 text-sm font-semibold">$101,050</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">2025/08/13</td><td class="px-4 py-3 text-sm">電商工作機</td><td class="px-4 py-3 text-sm">64GB/1TB/2TB</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm">電商 蔡依純</td><td class="px-4 py-3 text-sm font-semibold">$31,626</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">2025/10/08</td><td class="px-4 py-3 text-sm">伺服器</td><td class="px-4 py-3 text-sm">32GB/500GB/24TB(8TB×3)</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm">-</td><td class="px-4 py-3 text-sm font-semibold">$47,460</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">2025/12/23</td><td class="px-4 py-3 text-sm">文書機</td><td class="px-4 py-3 text-sm">32GB/1TB/4TB</td><td class="px-4 py-3 text-sm">2</td><td class="px-4 py-3 text-sm">電商 宇童、怡晴</td><td class="px-4 py-3 text-sm font-semibold">$74,300</td></tr>
+                        <tr class="bg-gray-50"><td class="px-4 py-3 text-sm">2025/12/30</td><td class="px-4 py-3 text-sm">文書機</td><td class="px-4 py-3 text-sm">32GB/1TB/4TB</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm">人資 廖苡爭</td><td class="px-4 py-3 text-sm font-semibold">$33,550</td></tr>
+                        <tr><td class="px-4 py-3 text-sm">2026/01/10</td><td class="px-4 py-3 text-sm">文書機</td><td class="px-4 py-3 text-sm">32GB/1TB/4TB</td><td class="px-4 py-3 text-sm">1</td><td class="px-4 py-3 text-sm">採購 黃佩琦</td><td class="px-4 py-3 text-sm font-semibold">$35,284</td></tr>
+                        <tr class="bg-blue-50"><td class="px-4 py-3 text-sm font-bold" colspan="5">合計</td><td class="px-4 py-3 text-sm font-bold text-green-600">$367,808</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 頁尾 -->
+        <div class="text-center text-gray-500 text-sm mt-8 no-print">
+            <p>最後更新：2026年1月</p>
+            <p class="mt-2">數據來源：公司電腦購買紀錄</p>
+            <p class="mt-2"><a href="index.html" class="text-blue-600 hover:text-blue-800 underline">← 返回分析報告</a></p>
+        </div>
+    </div>
+</body>
+</html>
