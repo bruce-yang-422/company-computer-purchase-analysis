@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公司電腦購買紀錄分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { 
+                width: 210mm; 
+                margin: 0 auto;
+                padding: 10mm;
+            }
+            .container { 
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+        }
+        @media screen {
+            .container { 
+                max-width: 210mm;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen py-8">
+    <div class="container mx-auto px-4 max-w-7xl">
+        <!-- 標題 -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">公司電腦購買紀錄分析</h1>
+            <p class="text-gray-600">2025年6月 - 2026年1月</p>
+        </div>
+
+        <!-- 總覽卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+                <div class="text-gray-600 text-sm mb-1">總訂單數</div>
+                <div class="text-3xl font-bold text-blue-600">7 筆</div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+                <div class="text-gray-600 text-sm mb-1">總金額</div>
+                <div class="text-3xl font-bold text-blue-600">$367,808</div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+                <div class="text-gray-600 text-sm mb-1">平均單價</div>
+                <div class="text-3xl font-bold text-blue-600">$30,651</div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+                <div class="text-gray-600 text-sm mb-1">總電腦數</div>
+                <div class="text-3xl font-bold text-blue-600">12 台</div>
+            </div>
+        </div>
+
+        <!-- 電腦類型分布 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">電腦類型分布</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="text-sm text-gray-600 mb-1">文書機</div>
+                    <div class="text-2xl font-bold text-blue-600">9 台</div>
+                    <div class="text-sm text-gray-500 mt-1">$244,184 (66.4%)</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="text-sm text-gray-600 mb-1">工作開發機</div>
+                    <div class="text-2xl font-bold text-blue-600">2 台</div>
+                    <div class="text-sm text-gray-500 mt-1">$76,164 (20.7%)</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="text-sm text-gray-600 mb-1">伺服器</div>
+                    <div class="text-2xl font-bold text-blue-600">1 台</div>
+                    <div class="text-sm text-gray-500 mt-1">$47,460 (12.9%)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 各電腦詳細分析 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">各電腦詳細分析</h2>
+            
+            <!-- MIS工作開發機 -->
+            <div class="mb-8 border-b pb-6 last:border-b-0">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">MIS工作開發機</h3>
+                        <p class="text-sm text-gray-500">2025/06/13 | 訂單 #250613012</p>
+                        <p class="text-sm text-blue-600 font-medium">分配：楊翔志</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-green-600">$44,538</div>
+                        <div class="text-sm text-gray-500">原價 $45,538 (省 $1,000)</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">CPU</div>
+                        <div class="font-semibold">$9,950</div>
+                        <div class="text-xs text-gray-500">22.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">主機板</div>
+                        <div class="font-semibold">$6,790</div>
+                        <div class="text-xs text-gray-500">15.2%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">記憶體</div>
+                        <div class="font-semibold">$4,800</div>
+                        <div class="text-xs text-gray-500">10.8%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">SSD</div>
+                        <div class="font-semibold">$8,088</div>
+                        <div class="text-xs text-gray-500">18.2%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">HDD</div>
+                        <div class="font-semibold">$4,190</div>
+                        <div class="text-xs text-gray-500">9.4%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">散熱器</div>
+                        <div class="font-semibold">$1,250</div>
+                        <div class="text-xs text-gray-500">2.8%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">機殼</div>
+                        <div class="font-semibold">$1,490</div>
+                        <div class="text-xs text-gray-500">3.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">電源</div>
+                        <div class="font-semibold">$2,490</div>
+                        <div class="text-xs text-gray-500">5.6%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded col-span-2 md:col-span-4">
+                        <div class="text-xs text-gray-600">作業系統</div>
+                        <div class="font-semibold">$6,490</div>
+                        <div class="text-xs text-gray-500">14.6%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文書機 (x5台) -->
+            <div class="mb-8 border-b pb-6 last:border-b-0">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">文書機 (5台)</h3>
+                        <p class="text-sm text-gray-500">2025/07/16 | 訂單 #2507160071</p>
+                        <p class="text-sm text-blue-600 font-medium">分配：潘子傑 / 李承璋Gary / 徐宗裕 / 曾琪晏 小呆 / 伍家薰兒</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-green-600">$20,210/台</div>
+                        <div class="text-sm text-gray-500">總計 $101,050</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">CPU</div>
+                        <div class="font-semibold">$6,900</div>
+                        <div class="text-xs text-gray-500">34.1%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">主機板</div>
+                        <div class="font-semibold">$3,990</div>
+                        <div class="text-xs text-gray-500">19.7%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">記憶體</div>
+                        <div class="font-semibold">$2,700</div>
+                        <div class="text-xs text-gray-500">13.4%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">SSD</div>
+                        <div class="font-semibold">$1,780</div>
+                        <div class="text-xs text-gray-500">8.8%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">HDD</div>
+                        <div class="font-semibold">$1,990</div>
+                        <div class="text-xs text-gray-500">9.8%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded col-span-2">
+                        <div class="text-xs text-gray-600">機殼+電源</div>
+                        <div class="font-semibold">$2,850</div>
+                        <div class="text-xs text-gray-500">14.1%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 電商工作機 -->
+            <div class="mb-8 border-b pb-6 last:border-b-0">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">電商工作機 (粉色/64G RAM)</h3>
+                        <p class="text-sm text-gray-500">2025/08/13 | 訂單 #2508130187</p>
+                        <p class="text-sm text-blue-600 font-medium">分配：電商 蔡依純（更換使用）</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-green-600">$31,626</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">CPU</div>
+                        <div class="font-semibold">$9,900</div>
+                        <div class="text-xs text-gray-500">31.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">主機板</div>
+                        <div class="font-semibold">$4,990</div>
+                        <div class="text-xs text-gray-500">15.8%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">記憶體</div>
+                        <div class="font-semibold">$5,499</div>
+                        <div class="text-xs text-gray-500">17.4%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">SSD</div>
+                        <div class="font-semibold">$4,778</div>
+                        <div class="text-xs text-gray-500">15.1%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">HDD</div>
+                        <div class="font-semibold">$1,980</div>
+                        <div class="text-xs text-gray-500">6.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">散熱器</div>
+                        <div class="font-semibold">$899</div>
+                        <div class="text-xs text-gray-500">2.8%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">機殼</div>
+                        <div class="font-semibold">$1,590</div>
+                        <div class="text-xs text-gray-500">5.0%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">電源</div>
+                        <div class="font-semibold">$1,990</div>
+                        <div class="text-xs text-gray-500">6.3%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 伺服器 -->
+            <div class="mb-8 border-b pb-6 last:border-b-0">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">伺服器</h3>
+                        <p class="text-sm text-gray-500">2025/10/08 | 訂單 #2510080112</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-green-600">$47,460</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">CPU</div>
+                        <div class="font-semibold">$10,750</div>
+                        <div class="text-xs text-gray-500">22.7%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">主機板</div>
+                        <div class="font-semibold">$6,990</div>
+                        <div class="text-xs text-gray-500">14.7%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">記憶體</div>
+                        <div class="font-semibold">$3,500</div>
+                        <div class="text-xs text-gray-500">7.4%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">SSD</div>
+                        <div class="font-semibold">$1,780</div>
+                        <div class="text-xs text-gray-500">3.8%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded col-span-2 md:col-span-4">
+                        <div class="text-xs text-gray-600">NAS硬碟 (8TB×3)</div>
+                        <div class="font-semibold">$19,770</div>
+                        <div class="text-xs text-gray-500">41.7%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">散熱器</div>
+                        <div class="font-semibold">$890</div>
+                        <div class="text-xs text-gray-500">1.9%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">機殼</div>
+                        <div class="font-semibold">$1,990</div>
+                        <div class="text-xs text-gray-500">4.2%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">電源</div>
+                        <div class="font-semibold">$1,790</div>
+                        <div class="text-xs text-gray-500">3.8%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文書機 (宇童、怡晴) -->
+            <div class="mb-8 border-b pb-6 last:border-b-0">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">文書機 (宇童、怡晴)</h3>
+                        <p class="text-sm text-gray-500">2025/12/23 | 訂單 #2512230121 | 總計 2台</p>
+                        <p class="text-sm text-blue-600 font-medium">分配：電商 宇童、怡晴</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-green-600">$37,150/台</div>
+                        <div class="text-sm text-gray-500">總計 $74,300</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">CPU (×2)</div>
+                        <div class="font-semibold">$6,800/台</div>
+                        <div class="text-xs text-gray-500">18.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">主機板 (×2)</div>
+                        <div class="font-semibold">$6,490/台</div>
+                        <div class="text-xs text-gray-500">17.5%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">記憶體 (×2)</div>
+                        <div class="font-semibold">$9,100/台</div>
+                        <div class="text-xs text-gray-500">24.5%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">SSD (×2)</div>
+                        <div class="font-semibold">$4,450/台</div>
+                        <div class="text-xs text-gray-500">12.0%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">HDD (×2)</div>
+                        <div class="font-semibold">$4,490/台</div>
+                        <div class="text-xs text-gray-500">12.1%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">散熱器 (×2)</div>
+                        <div class="font-semibold">$1,290/台</div>
+                        <div class="text-xs text-gray-500">3.5%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">機殼 (×2)</div>
+                        <div class="font-semibold">$1,540/台</div>
+                        <div class="text-xs text-gray-500">4.1%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">電源 (×2)</div>
+                        <div class="font-semibold">$3,040/台</div>
+                        <div class="text-xs text-gray-500">8.2%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文書機 (苡爭) -->
+            <div class="mb-8 border-b pb-6 last:border-b-0">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">文書機 (苡爭)</h3>
+                        <p class="text-sm text-gray-500">2025/12/30 | 訂單 #2512290148</p>
+                        <p class="text-sm text-blue-600 font-medium">分配：人資 廖苡爭</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-green-600">$33,550</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">CPU</div>
+                        <div class="font-semibold">$6,150</div>
+                        <div class="text-xs text-gray-500">18.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">主機板</div>
+                        <div class="font-semibold">$4,790</div>
+                        <div class="text-xs text-gray-500">14.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">記憶體</div>
+                        <div class="font-semibold">$8,800</div>
+                        <div class="text-xs text-gray-500">26.2%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">SSD</div>
+                        <div class="font-semibold">$4,450</div>
+                        <div class="text-xs text-gray-500">13.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">HDD</div>
+                        <div class="font-semibold">$4,490</div>
+                        <div class="text-xs text-gray-500">13.4%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">散熱器</div>
+                        <div class="font-semibold">$990</div>
+                        <div class="text-xs text-gray-500">3.0%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">機殼</div>
+                        <div class="font-semibold">$1,990</div>
+                        <div class="text-xs text-gray-500">5.9%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">電源</div>
+                        <div class="font-semibold">$1,890</div>
+                        <div class="text-xs text-gray-500">5.6%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文書機 (佩琦) -->
+            <div class="mb-8 border-b pb-6 last:border-b-0">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800">文書機 (佩琦)</h3>
+                        <p class="text-sm text-gray-500">2026/01/10 | 訂單 #2601090164</p>
+                        <p class="text-sm text-blue-600 font-medium">分配：採購 黃佩琦（換新使用）</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-green-600">$35,284</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">CPU</div>
+                        <div class="font-semibold">$6,150</div>
+                        <div class="text-xs text-gray-500">17.4%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">主機板</div>
+                        <div class="font-semibold">$4,790</div>
+                        <div class="text-xs text-gray-500">13.6%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">記憶體</div>
+                        <div class="font-semibold">$10,300</div>
+                        <div class="text-xs text-gray-500">29.2%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">SSD</div>
+                        <div class="font-semibold">$4,699</div>
+                        <div class="text-xs text-gray-500">13.3%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">HDD</div>
+                        <div class="font-semibold">$4,790</div>
+                        <div class="text-xs text-gray-500">13.6%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">散熱器</div>
+                        <div class="font-semibold">$890</div>
+                        <div class="text-xs text-gray-500">2.5%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">機殼</div>
+                        <div class="font-semibold">$1,890</div>
+                        <div class="text-xs text-gray-500">5.4%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">電源</div>
+                        <div class="font-semibold">$1,690</div>
+                        <div class="text-xs text-gray-500">4.8%</div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <div class="text-xs text-gray-600">風扇</div>
+                        <div class="font-semibold">$85</div>
+                        <div class="text-xs text-gray-500">0.2%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 零件價格分析 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">零件價格分析與CP值評估</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- CPU價格比較與CP值 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">CPU 價格與CP值排名（基於標準跑分：Cinebench R23多核性能）</h3>
+                    <div class="space-y-3">
+                        <div class="border-l-4 border-blue-500 pl-3 py-2 bg-blue-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-blue-700 bg-blue-200 px-2 py-0.5 rounded">CP值第1</span>
+                                    <span class="text-sm font-semibold">AMD R5 8600G</span>
+                                </div>
+                                <span class="font-semibold">$6,150</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>性能：</strong>6核/12緒 4.3G(↑5.0G) | <strong>強度：</strong>7.2/10 (基於Cinebench R23多核跑分，約12,000-13,000分) | <strong>用途：</strong>文書機(苡爭、佩琦)
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>入門高效能 | <strong>CP值：</strong>★★★★★ | 性價比最高，適合文書處理
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 57.2%"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-3 py-2 bg-blue-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-blue-700 bg-blue-200 px-2 py-0.5 rounded">CP值第2</span>
+                                    <span class="text-sm font-semibold">Intel Core Ultra 5 245K</span>
+                                </div>
+                                <span class="font-semibold">$6,800</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>性能：</strong>14核 4.2G(↑5.2G) | <strong>強度：</strong>8.8/10 (基於Cinebench R23多核跑分，約22,000-24,000分) | <strong>用途：</strong>文書機(宇童、怡晴)
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>中階高效能 | <strong>CP值：</strong>★★★★☆ | 核心數多，多工處理佳
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 63.3%"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-3 py-2 bg-blue-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-blue-700 bg-blue-200 px-2 py-0.5 rounded">CP值第3</span>
+                                    <span class="text-sm font-semibold">Intel Core Ultra 5 225</span>
+                                </div>
+                                <span class="font-semibold">$6,900</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>性能：</strong>10核 3.3G(↑4.9G) | <strong>強度：</strong>7.5/10 (基於Cinebench R23多核跑分，約15,000-16,000分) | <strong>用途：</strong>文書機×5
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>中階 | <strong>CP值：</strong>★★★★☆ | 基礎文書處理足夠
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 64.2%"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-3 py-2 bg-purple-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-purple-700 bg-purple-200 px-2 py-0.5 rounded">CP值第4</span>
+                                    <span class="text-sm font-semibold">Intel Core Ultra 7 265K</span>
+                                </div>
+                                <span class="font-semibold">$9,900-$9,950</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>性能：</strong>20核 3.9G(↑5.5G) | <strong>強度：</strong>9.8/10 (基於Cinebench R23多核跑分，約32,000-35,000分) | <strong>用途：</strong>MIS工作開發機、電商工作機
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>高階 | <strong>CP值：</strong>★★★☆☆ | 高效能，適合開發與多工
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 92.6%"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-red-500 pl-3 py-2 bg-red-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-red-700 bg-red-200 px-2 py-0.5 rounded">CP值第5</span>
+                                    <span class="text-sm font-semibold">AMD R7 9700X</span>
+                                </div>
+                                <span class="font-semibold">$10,750</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>性能：</strong>8核/16緒 3.8G(↑5.5G) | <strong>強度：</strong>9.2/10 (基於Cinebench R23多核跑分，約28,000-30,000分) | <strong>用途：</strong>伺服器
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>高階 | <strong>CP值：</strong>★★☆☆☆ | 伺服器專用，價格較高
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-gray-50 rounded-lg border border-gray-300">
+                        <p class="text-xs text-gray-600">
+                            <strong>CPU評分：</strong>基於Cinebench R23多核跑分，詳見頁尾說明。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 記憶體價格趨勢與CP值 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">記憶體價格趨勢與CP值（考慮品牌、顆粒、速度）</h3>
+                    <div class="space-y-3">
+                        <div class="border-l-4 border-green-500 pl-3 py-2 bg-green-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-green-700 bg-green-200 px-2 py-0.5 rounded">CP值第1</span>
+                                    <span class="text-sm font-semibold">2025/07 (文書機×5)</span>
+                                </div>
+                                <span class="font-semibold">$2,700</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>品牌：</strong>金士頓 | <strong>規格：</strong>32GB DDR5-5600 CL36 | <strong>強度：</strong>8.5/10 (基礎8.0+品牌0.5)
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>標準 | <strong>CP值：</strong>★★★★★ | 最佳購買時機，品牌可靠
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 26.2%"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-3 py-2 bg-green-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-green-700 bg-green-200 px-2 py-0.5 rounded">CP值第2</span>
+                                    <span class="text-sm font-semibold">2025/10 (伺服器)</span>
+                                </div>
+                                <span class="font-semibold">$3,500</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>品牌：</strong>金士頓 | <strong>規格：</strong>32GB DDR5-5600 CL36 RGB | <strong>強度：</strong>8.7/10 (基礎8.0+品牌0.5+RGB0.2)
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>標準 | <strong>CP值：</strong>★★★★☆ | 價格開始上漲，RGB版本
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 34.0%"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-3 py-2 bg-orange-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-orange-700 bg-orange-200 px-2 py-0.5 rounded">CP值第3</span>
+                                    <span class="text-sm font-semibold">2025/12 (苡爭)</span>
+                                </div>
+                                <span class="font-semibold">$8,800</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>品牌：</strong>金士頓 | <strong>規格：</strong>32GB DDR5-5600 CL36 | <strong>強度：</strong>8.5/10 (基礎8.0+品牌0.5)
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>標準 | <strong>CP值：</strong>★★☆☆☆ | 價格大幅上漲，同規格但貴3.26倍
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85.4%"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-3 py-2 bg-orange-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-orange-700 bg-orange-200 px-2 py-0.5 rounded">CP值第4</span>
+                                    <span class="text-sm font-semibold">2025/12 (宇童、怡晴)</span>
+                                </div>
+                                <span class="font-semibold">$9,100</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>品牌：</strong>金士頓 | <strong>規格：</strong>32GB DDR5-5600 CL36 RGB A/I雙模 | <strong>強度：</strong>9.0/10 (基礎8.0+品牌0.5+RGB0.2+A/I雙模0.3)
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>標準+ | <strong>CP值：</strong>★★☆☆☆ | A/I雙模（同時支援AMD EXPO/Intel XMP），但價格過高
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 88.3%"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-red-500 pl-3 py-2 bg-red-50 rounded">
+                            <div class="flex justify-between items-center mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-red-700 bg-red-200 px-2 py-0.5 rounded">CP值第5</span>
+                                    <span class="text-sm font-semibold">2026/01 (佩琦)</span>
+                                </div>
+                                <span class="font-semibold">$10,300</span>
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>品牌：</strong>金士頓 | <strong>規格：</strong>32GB DDR5-5600 CL36 RGB | <strong>強度：</strong>8.7/10 (基礎8.0+品牌0.5+RGB0.2)
+                            </div>
+                            <div class="text-xs text-gray-600 mb-1">
+                                <strong>等級：</strong>標準 | <strong>CP值：</strong>★☆☆☆☆ | 價格最高點，同規格但貴3.81倍
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-gray-50 rounded-lg border border-gray-300 mb-3">
+                            <p class="text-xs text-gray-700 mb-2">
+                                <strong>64GB記憶體比較：</strong>
+                            </p>
+                            <div class="text-xs text-gray-700 space-y-1">
+                                <div><strong>MIS工作開發機：</strong>金士頓 64GB DDR5-5600 CL36 ($4,800) | 強度：9.5/10 (基礎9.0+品牌0.5) | CP值：★★★★☆</div>
+                                <div><strong>電商工作機：</strong>威剛 64GB DDR5-5600 CL36 RGB ($5,499) | 強度：9.5/10 (基礎9.0+品牌0.3+RGB0.2) | CP值：★★★☆☆</div>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-300">
+                            <p class="text-sm text-gray-700">
+                                <strong>注意：</strong>記憶體價格在2025年第四季度大幅上漲，從$2,700漲至$10,300，漲幅達281%！詳見頁尾說明。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 主機板價格與CP值分析 -->
+            <div class="mt-6 pt-6 border-t">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">主機板價格與CP值排名（考慮擴充性、保固、功能）</h3>
+                <div class="space-y-3">
+                    <div class="border-l-4 border-green-500 pl-3 py-2 bg-green-50 rounded">
+                        <div class="flex justify-between items-center mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-green-700 bg-green-200 px-2 py-0.5 rounded">CP值第1</span>
+                                <span class="text-sm font-semibold">華碩 TUF B650M-PLUS</span>
+                                <span class="text-xs text-gray-500">(AMD B650)</span>
+                            </div>
+                            <span class="font-semibold">$4,790</span>
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>用途：</strong>文書機(苡爭、佩琦) | <strong>規格：</strong>M-ATX/12+2+2相/WiFi
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>等級：</strong>TUF Gaming | <strong>強度：</strong>6.4/10 (MB100=60) | <strong>CP值：</strong>★★★★★ | TUF系列，性價比最高
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 68.5%"></div>
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-green-500 pl-3 py-2 bg-green-50 rounded">
+                        <div class="flex justify-between items-center mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-green-700 bg-green-200 px-2 py-0.5 rounded">CP值第2</span>
+                                <span class="text-sm font-semibold">華碩 PRIME B860M-A</span>
+                                <span class="text-xs text-gray-500">(Intel B860)</span>
+                            </div>
+                            <span class="font-semibold">$3,990</span>
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>用途：</strong>文書機×5 | <strong>規格：</strong>M-ATX/7+1+1+1相/4年保
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>等級：</strong>Prime | <strong>強度：</strong>5.5/10 (MB100=50) | <strong>CP值：</strong>★★★★☆ | 基礎功能足夠，價格最低
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 57.1%"></div>
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-3 py-2 bg-blue-50 rounded">
+                        <div class="flex justify-between items-center mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-blue-700 bg-blue-200 px-2 py-0.5 rounded">CP值第3</span>
+                                <span class="text-sm font-semibold">技嘉 B860M AORUS ELITE</span>
+                                <span class="text-xs text-gray-500">(Intel B860)</span>
+                            </div>
+                            <span class="font-semibold">$4,990</span>
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>用途：</strong>電商工作機(2025/08) - 電商 蔡依純 | <strong>規格：</strong>M-ATX/12+1+2相/WiFi6E ICE
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>等級：</strong>AORUS Elite（低段） | <strong>強度：</strong>6.85/10 (MB100=65) | <strong>CP值：</strong>★★★★☆ | AORUS系列，功能豐富
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 71.4%"></div>
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-3 py-2 bg-blue-50 rounded">
+                        <div class="flex justify-between items-center mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-blue-700 bg-blue-200 px-2 py-0.5 rounded">CP值第4</span>
+                                <span class="text-sm font-semibold">技嘉 B860M AORUS ELITE 冰魄白</span>
+                                <span class="text-xs text-gray-500">(Intel B860)</span>
+                            </div>
+                            <span class="font-semibold">$6,490</span>
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>用途：</strong>文書機(宇童、怡晴 2025/12) | <strong>規格：</strong>M-ATX/12+1+2相/WiFi6E ICE 白色版
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>等級：</strong>AORUS Elite（低段） | <strong>強度：</strong>6.85/10 (MB100=65) | <strong>CP值：</strong>★★★☆☆ | 白色版本，價格較高（+$1,500）
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 92.8%"></div>
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-orange-500 pl-3 py-2 bg-orange-50 rounded">
+                        <div class="flex justify-between items-center mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-orange-700 bg-orange-200 px-2 py-0.5 rounded">CP值第5</span>
+                                <span class="text-sm font-semibold">華碩 TUF B860M-PLUS</span>
+                                <span class="text-xs text-gray-500">(Intel B860)</span>
+                            </div>
+                            <span class="font-semibold">$6,490</span>
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>用途：</strong>文書機(宇童、怡晴) | <strong>規格：</strong>M-ATX/12+1+2+1相/WiFi7/5年保
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>等級：</strong>TUF Gaming | <strong>強度：</strong>6.4/10 (MB100=60, M-ATX擴充性有限) | <strong>CP值：</strong>★★★☆☆ | TUF系列，M-ATX尺寸，5年保
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-orange-600 h-2 rounded-full" style="width: 92.8%"></div>
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-3 py-2 bg-purple-50 rounded">
+                        <div class="flex justify-between items-center mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-purple-700 bg-purple-200 px-2 py-0.5 rounded">CP值第6</span>
+                                <span class="text-sm font-semibold">華碩 TUF B860-PLUS</span>
+                                <span class="text-xs text-gray-500">(Intel B860)</span>
+                            </div>
+                            <span class="font-semibold">$6,790</span>
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>用途：</strong>MIS工作開發機 | <strong>規格：</strong>ATX/12+1+2+1相/WiFi7/5年保
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>等級：</strong>TUF Gaming | <strong>強度：</strong>7.2/10 (MB100=60 + ATX擴充性+0.8) | <strong>CP值：</strong>★★★★☆ | ATX擴充性最佳，TUF系列
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 97.1%"></div>
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-3 py-2 bg-purple-50 rounded">
+                        <div class="flex justify-between items-center mb-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-purple-700 bg-purple-200 px-2 py-0.5 rounded">CP值第7</span>
+                                <span class="text-sm font-semibold">華碩 TUF B850-PLUS</span>
+                                <span class="text-xs text-gray-500">(AMD B850)</span>
+                            </div>
+                            <span class="font-semibold">$6,990</span>
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>用途：</strong>伺服器 | <strong>規格：</strong>ATX/14+2+1相/WiFi7/5年保
+                        </div>
+                        <div class="text-xs text-gray-600 mb-1">
+                            <strong>等級：</strong>TUF Gaming | <strong>強度：</strong>7.4/10 (MB100=60 + ATX伺服器級擴充性+1.0) | <strong>CP值：</strong>★★★★☆ | ATX擴充性最佳，伺服器用
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 p-3 bg-gray-50 rounded-lg border border-gray-300">
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>主機板選購策略：</strong>條件允許時優先選擇TUF Gaming系列，提供更好的擴充性、5年保固、WiFi7支援，適合長期使用與未來升級。AMD平台的TUF B650M-PLUS ($4,790) 是性價比最高的TUF選擇。ATX版本（如TUF B860-PLUS、TUF B850-PLUS）雖然價格較高，但擴充性更佳，適合需要多硬碟位、多PCIe插槽的應用場景（如開發機、伺服器）。
+                    </p>
+                    <p class="text-xs text-gray-600">
+                        <strong>主機板評分：</strong>基於MB100標準化分數+擴充性加成，詳見頁尾說明。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 成本效益分析 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">成本效益分析</h2>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">電腦類型</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">平均單價</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CPU占比</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">主機板占比</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">記憶體占比</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">儲存占比</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">其他占比</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-4 py-3 text-sm font-medium text-gray-900">MIS工作開發機</td>
+                            <td class="px-4 py-3 text-sm text-gray-900">$44,538</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">22.3%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500 font-semibold text-orange-600">15.2% (TUF)</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">10.8%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">27.6%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">24.1%</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-3 text-sm font-medium text-gray-900">文書機 (早期)</td>
+                            <td class="px-4 py-3 text-sm text-gray-900">$20,210</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">34.1%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">19.7% (PRIME)</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">13.4%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">18.6%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">14.1%</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm font-medium text-gray-900">電商工作機</td>
+                            <td class="px-4 py-3 text-sm text-gray-900">$31,626</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">31.3%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">15.8% (AORUS)</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">17.4%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">21.4%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">14.0%</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-3 text-sm font-medium text-gray-900">伺服器</td>
+                            <td class="px-4 py-3 text-sm text-gray-900">$47,460</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">22.7%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500 font-semibold text-orange-600">14.7% (TUF)</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">7.4%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">45.5%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">9.7%</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 text-sm font-medium text-gray-900">文書機 (後期)</td>
+                            <td class="px-4 py-3 text-sm text-gray-900">$35,284</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">17.4%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500 font-semibold text-orange-600">13.6% (TUF)</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">29.2%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">27.0%</td>
+                            <td class="px-4 py-3 text-sm text-gray-500">12.8%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 時間趨勢分析 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">同等級零件價格時間趨勢（標準化換算）</h2>
+            <p class="text-gray-600 mb-4 text-sm">所有零件價格已標準化換算，避免空值過多：<strong>記憶體</strong>換算成每32GB、<strong>SSD</strong>換算成每1TB、<strong>CPU</strong>換算成每1000分Cinebench R23多核性能（基於實際跑分，避免Intel/AMD核心架構差異失真）、<strong>主機板</strong>按MB100=60標準化</p>
+            <canvas id="priceChart" class="max-h-96"></canvas>
+        </div>
+
+        <!-- 六邊形指標分析 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">綜合六邊形指標分析</h2>
+            <p class="text-gray-600 mb-6">評估各電腦在效能、穩定、安全、管理、擴充、成本六個面向的表現（滿分10分）</p>
+            
+            <!-- 綜合比較圖表 -->
+            <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4 text-center">所有電腦綜合比較</h3>
+                <div class="flex justify-center">
+                    <canvas id="combinedRadarChart" class="max-h-96"></canvas>
+                </div>
+            </div>
+            
+            <!-- 評分說明 -->
+            <div class="bg-gray-50 border border-gray-300 rounded-lg p-4">
+                <h4 class="font-semibold text-gray-800 mb-3">評分標準說明（1-10分，普通正常為5分）：</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
+                    <div class="space-y-2">
+                        <div><strong>效能（CPU+RAM+SSD）：</strong></div>
+                        <div class="pl-4 text-xs space-y-1">
+                            <div>• 5分：Core Ultra 5 10核/32GB/Gen4 SSD（標準文書配置）</div>
+                            <div>• 7分：Core Ultra 5 14核/32GB/Gen4 SSD（進階文書）</div>
+                            <div>• 8分：Core Ultra 7 20核/64GB/Gen4 SSD（高效能）</div>
+                            <div>• 9分：Core Ultra 7 20核/64GB/Gen5 SSD（頂級配置）</div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div><strong>穩定（硬碟+保固+品牌）：</strong></div>
+                        <div class="pl-4 text-xs space-y-1">
+                            <div>• 5分：消費級硬碟/3年保/一般品牌（標準配置）</div>
+                            <div>• 7分：消費級硬碟/5年保/知名品牌（良好配置）</div>
+                            <div>• 8分：企業級硬碟/5年保/知名品牌（高穩定）</div>
+                            <div>• 9分：企業級硬碟/5年保/頂級品牌（最高穩定）</div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div><strong>安全（OS+加密+更新）：</strong></div>
+                        <div class="pl-4 text-xs space-y-1">
+                            <div>• 5分：Windows 11 Home（基本安全）</div>
+                            <div>• 7分：Windows 11 Pro（標準安全，文書機/工作機）</div>
+                            <div>• 8分：Linux Ubuntu 24 LTS（高安全，伺服器）</div>
+                            <div>• 9分：Windows 11 Pro + 加密支援（高安全，開發機）</div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div><strong>管理（遠端+IT支援+維護）：</strong></div>
+                        <div class="pl-4 text-xs space-y-1">
+                            <div>• 5分：基本配置，無特殊管理功能（標準）</div>
+                            <div>• 7分：Windows 11 Pro遠端管理（良好）</div>
+                            <div>• 8分：企業級管理功能（高管理性）</div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div><strong>擴充（主機板+插槽+空間）：</strong></div>
+                        <div class="pl-4 text-xs space-y-1">
+                            <div>• 5分：M-ATX/基本擴充（標準）</div>
+                            <div>• 7分：M-ATX/多插槽（良好擴充）</div>
+                            <div>• 8分：ATX/多插槽/多硬碟位（高擴充性）</div>
+                            <div>• 9分：ATX/多插槽/多硬碟位/伺服器級（最高擴充）</div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div><strong>成本（性價比評估）：</strong></div>
+                        <div class="pl-4 text-xs space-y-1">
+                            <div>• 5分：價格/性能比正常（標準）</div>
+                            <div>• 7分：價格/性能比良好（划算）</div>
+                            <div>• 9分：價格/性能比優秀（超值）</div>
+                            <div>• 3分：價格/性能比差（不划算）</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 總結 -->
+        <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg p-6 text-white">
+            <h2 class="text-2xl font-bold mb-4">分析總結</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">採購概況</h3>
+                    <ul class="space-y-1 text-base">
+                        <li>• 總採購金額：<strong>$367,808</strong>，共採購 <strong>12台</strong>電腦，平均單價 <strong>$30,651</strong></li>
+                        <li>• 文書機佔總採購金額的 <strong>66.1%</strong>（$243,100），是最主要的採購類型</li>
+                        <li>• 工作開發機與伺服器各佔 <strong>12.1%</strong> 和 <strong>12.9%</strong>，配置較高</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">價格趨勢關鍵發現</h3>
+                    <ul class="space-y-1 text-base">
+                        <li>• <strong>記憶體價格暴漲：</strong>2025年Q4從$2,700漲至$10,300，漲幅達<strong>281%</strong>，導致後期文書機成本大幅增加</li>
+                        <li>• 記憶體佔比從早期13.4%提升至後期29.2%，成為成本最大變數</li>
+                        <li>• CPU、SSD、主機板價格相對穩定，變化幅度在10-20%以內</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">配置策略分析</h3>
+                    <ul class="space-y-1 text-base">
+                        <li>• <strong>文書機：</strong>早期配置（$20,210）性價比最高，後期因記憶體漲價成本增加至$33,550-$35,284</li>
+                        <li>• <strong>工作開發機：</strong>採用Intel Core Ultra 7 265K + 64GB RAM + Gen5 SSD，配置最完整</li>
+                        <li>• <strong>伺服器：</strong>以儲存為重點，NAS硬碟佔41.7%，使用Linux Ubuntu 24 LTS</li>
+                        <li>• <strong>主機板選購：</strong>條件允許時優先選擇TUF Gaming系列，擴充性與保固更佳</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">CP值建議</h3>
+                    <ul class="space-y-1 text-base">
+                        <li>• <strong>最佳購買時機：</strong>2025年7月（記憶體$2,700，CP值★★★★★）</li>
+                        <li>• <strong>CPU推薦：</strong>AMD R5 8600G性價比最高，Intel Core Ultra 5 245K多工處理佳</li>
+                        <li>• <strong>主機板推薦：</strong>AMD平台TUF B650M-PLUS ($4,790) 是性價比最高的TUF選擇</li>
+                        <li>• <strong>未來採購建議：</strong>密切關注記憶體價格趨勢，適時調整配置或延後採購</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細說明（頁尾） -->
+        <div class="bg-gray-50 rounded-lg shadow-md p-6 mt-8 border-t-4 border-blue-500">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">詳細評分標準說明</h2>
+            
+            <div class="space-y-6">
+                <!-- CPU評分標準 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">CPU評分標準</h3>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <strong>評分方式：</strong>基於標準跑分結果（Cinebench R23多核性能）進行評分，避免因品牌不同、核心計算方式不同而失真。
+                    </p>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <strong>評分公式：</strong>強度 = (Cinebench R23多核分數 / 最高分數) × 10，上限10分。
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        <strong>參考跑分範圍：</strong>
+                    </p>
+                    <ul class="text-sm text-gray-600 ml-4 space-y-1">
+                        <li>• AMD R5 8600G: 12,000-13,000分 → 7.2/10</li>
+                        <li>• Intel Core Ultra 5 225: 15,000-16,000分 → 7.5/10</li>
+                        <li>• Intel Core Ultra 5 245K: 22,000-24,000分 → 8.8/10</li>
+                        <li>• AMD R7 9700X: 28,000-30,000分 → 9.2/10</li>
+                        <li>• Intel Core Ultra 7 265K: 32,000-35,000分 → 9.8/10</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-2">
+                        註：實際跑分可能因測試環境而異，建議參考最新評測數據。
+                    </p>
+                </div>
+
+                <!-- RAM評分標準 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">RAM加權計分標準</h3>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <strong>評分方式：</strong>基礎分數 + 品牌加權 + 功能加權，避免僅看容量而忽略品牌、速度、功能差異。
+                    </p>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <strong>計分公式：</strong>
+                    </p>
+                    <ul class="text-sm text-gray-600 ml-4 space-y-1">
+                        <li>• <strong>基礎分數：</strong>32GB = 8.0分，64GB = 9.0分</li>
+                        <li>• <strong>品牌加權：</strong>金士頓 +0.5，威剛 +0.3</li>
+                        <li>• <strong>RGB加權：</strong>+0.2</li>
+                        <li>• <strong>A/I雙模加權：</strong>+0.3（註：A/I = AMD/Intel，同時支援EXPO/XMP，此AI非彼AI）</li>
+                    </ul>
+                    <p class="text-sm text-gray-600 mt-3">
+                        <strong>價格趨勢：</strong>記憶體價格在2025年第四季度大幅上漲，從$2,700漲至$10,300，漲幅達281%！CP值從★★★★★降至★☆☆☆☆。同規格（32GB DDR5-5600 CL36）但價格差異巨大。
+                    </p>
+                </div>
+
+                <!-- 主機板評分標準 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">主機板加權計分標準</h3>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <strong>評分方式：</strong>使用MB100標準化分數 + 擴充性與功能加成，避免僅看MB100而忽略擴充性、功能差異。
+                    </p>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <strong>MB100標準化公式：</strong>MB_1to10 = 1 + 9×(MB100/100)，5分為一般標準。
+                    </p>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <strong>MB100等級對照：</strong>
+                    </p>
+                    <ul class="text-sm text-gray-600 ml-4 space-y-1">
+                        <li>• Prime系列 = 50(MB100) → 5.5分</li>
+                        <li>• TUF Gaming = 60(MB100) → 6.4分</li>
+                        <li>• AORUS Elite（低段）= 65(MB100) → 6.85分</li>
+                    </ul>
+                    <p class="text-sm text-gray-600 mb-2 mt-3">
+                        <strong>擴充性與功能加成：</strong>
+                    </p>
+                    <ul class="text-sm text-gray-600 ml-4 space-y-1">
+                        <li>• <strong>尺寸加權：</strong>ATX +0.8，M-ATX +0</li>
+                        <li>• <strong>供電相數加權：</strong>12相以上 +0.2</li>
+                        <li>• <strong>WiFi版本加權：</strong>WiFi7 +0.3，WiFi6E +0.2</li>
+                        <li>• <strong>保固加權：</strong>5年保 +0.2</li>
+                    </ul>
+                </div>
+
+                <!-- 標準化換算說明 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-3">價格時間趨勢標準化換算說明</h3>
+                    <p class="text-sm text-gray-600 mb-2">
+                        所有零件價格已標準化換算，避免空值過多，便於比較價格趨勢：
+                    </p>
+                    <ul class="text-sm text-gray-600 ml-4 space-y-1">
+                        <li>• <strong>記憶體：</strong>換算成每32GB價格（64GB÷2，32GB直接使用）</li>
+                        <li>• <strong>SSD：</strong>換算成每1TB價格（2TB÷2，1TB直接使用，500GB×2）</li>
+                        <li>• <strong>CPU：</strong>換算成每1000分Cinebench R23多核性能的價格（基於實際跑分，避免Intel/AMD核心架構差異失真）</li>
+                        <li>• <strong>主機板：</strong>按MB100=60標準化（標準化價格 = 實際價格 × (60 / MB100)）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 頁尾 -->
+        <div class="text-center text-gray-500 text-sm mt-8 no-print">
+            <p>最後更新：2026年1月</p>
+            <p class="mt-2">數據來源：公司電腦購買紀錄</p>
+        </div>
+    </div>
+
+    <script>
+        // 價格趨勢圖表
+        const ctx = document.getElementById('priceChart').getContext('2d');
+        
+        // 實際日期
+        const dates = [
+            new Date('2025-06-13'),
+            new Date('2025-07-16'),
+            new Date('2025-08-13'),
+            new Date('2025-10-08'),
+            new Date('2025-12-23'),
+            new Date('2025-12-30'),
+            new Date('2026-01-10')
+        ];
+        
+        // 基準日期（第一個日期）
+        const baseDate = dates[0];
+        
+        // 計算從基準日期開始的周數
+        const weeksFromBase = dates.map(date => {
+            const diffTime = date - baseDate;
+            const diffWeeks = diffTime / (1000 * 60 * 60 * 24 * 7);
+            return diffWeeks;
+        });
+        
+        // 日期標籤
+        const labels = ['2025/06', '2025/07', '2025/08', '2025/10', '2025/12', '2025/12', '2026/01'];
+        
+        // 準備數據點（使用周數作為x值）
+        // 所有零件價格已標準化換算，避免空值過多
+        
+        // RAM：換算成每32GB價格
+        const ramPer32GBData = [
+            {x: weeksFromBase[0], y: 2400},   // 2025/06 64GB→32GB: $4,800÷2
+            {x: weeksFromBase[1], y: 2700},   // 2025/07 32GB: $2,700
+            {x: weeksFromBase[2], y: 2749.5}, // 2025/08 64GB→32GB: $5,499÷2
+            {x: weeksFromBase[3], y: 3500},   // 2025/10 32GB: $3,500
+            {x: weeksFromBase[4], y: 9100},   // 2025/12 32GB: $9,100 (漲價)
+            {x: weeksFromBase[5], y: 8800},   // 2025/12 32GB: $8,800
+            {x: weeksFromBase[6], y: 10300}   // 2026/01 32GB: $10,300 (漲價)
+        ];
+        
+        // SSD：換算成每1TB價格
+        const ssdPer1TBData = [
+            {x: weeksFromBase[0], y: 4044},   // 2025/06 T705 2TB→1TB: $8,088÷2
+            {x: weeksFromBase[1], y: 3560},   // 2025/07 Renegade 500GB→1TB: $1,780×2
+            {x: weeksFromBase[2], y: 4778},   // 2025/08 T705 1TB: $4,778
+            {x: weeksFromBase[3], y: 3560},   // 2025/10 Renegade 500GB→1TB: $1,780×2
+            {x: weeksFromBase[4], y: 4450},   // 2025/12 SN850X 1TB: $4,450
+            {x: weeksFromBase[5], y: 4450},   // 2025/12 SN850X 1TB: $4,450
+            {x: weeksFromBase[6], y: 4699}    // 2026/01 GM7 1TB: $4,699
+        ];
+        
+        // CPU：換算成每1000分Cinebench R23多核性能的價格（基於實際跑分，避免核心架構差異）
+        // 跑分參考：AMD R5 8600G≈12,500分，Core Ultra 5 225≈15,500分，Core Ultra 5 245K≈23,000分
+        const cpuPer1KScoreData = [
+            {x: weeksFromBase[1], y: 445},    // 2025/07 Core Ultra 5 225: $6,900÷15.5≈$445/1000分
+            {x: weeksFromBase[4], y: 296},    // 2025/12 Core Ultra 5 245K: $6,800÷23≈$296/1000分
+            {x: weeksFromBase[5], y: 492},   // 2025/12 AMD R5 8600G: $6,150÷12.5≈$492/1000分
+            {x: weeksFromBase[6], y: 492}     // 2026/01 AMD R5 8600G: $6,150÷12.5≈$492/1000分
+        ];
+        
+        // 主機板：按MB100標準化（MB100=60為基準，換算成標準化價格）
+        // 標準化公式：標準化價格 = 實際價格 × (60 / MB100)
+        const mbStandardizedData = [
+            {x: weeksFromBase[0], y: 6790},   // 2025/06 TUF B860-PLUS (ATX, MB100=60): $6,790
+            {x: weeksFromBase[1], y: 4788},   // 2025/07 PRIME B860M-A (MB100=50): $3,990×(60/50)
+            {x: weeksFromBase[2], y: 4606},   // 2025/08 AORUS ELITE (MB100=65): $4,990×(60/65)
+            {x: weeksFromBase[3], y: 6990},   // 2025/10 TUF B850-PLUS (ATX, MB100=60): $6,990
+            {x: weeksFromBase[4], y: 6490},   // 2025/12 TUF B860M-PLUS (MB100=60): $6,490
+            {x: weeksFromBase[4], y: 5990},   // 2025/12 AORUS ELITE 冰魄白 (MB100=65): $6,490×(60/65)
+            {x: weeksFromBase[5], y: 4790},   // 2025/12 TUF B650M-PLUS (MB100=60): $4,790
+            {x: weeksFromBase[6], y: 4790}    // 2026/01 TUF B650M-PLUS (MB100=60): $4,790
+        ];
+        
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: '記憶體 (每32GB)',
+                    data: ramPer32GBData,
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4,
+                    fill: false,
+                    borderWidth: 2
+                }, {
+                    label: 'SSD (每1TB)',
+                    data: ssdPer1TBData,
+                    borderColor: 'rgb(168, 85, 247)',
+                    backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                    tension: 0.4,
+                    fill: false,
+                    borderWidth: 2
+                }, {
+                    label: 'CPU (每1000分Cinebench R23，中階)',
+                    data: cpuPer1KScoreData,
+                    borderColor: 'rgb(16, 185, 129)',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    tension: 0.4,
+                    fill: false,
+                    borderWidth: 2
+                }, {
+                    label: '主機板 (MB100=60標準化)',
+                    data: mbStandardizedData,
+                    borderColor: 'rgb(245, 158, 11)',
+                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                    tension: 0.4,
+                    fill: false,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                // 找到對應的日期標籤
+                                const weekValue = context[0].parsed.x;
+                                const index = weeksFromBase.findIndex(w => Math.abs(w - weekValue) < 0.1);
+                                return index >= 0 ? labels[index] : '';
+                            },
+                            label: function(context) {
+                                if (context.parsed.y === null) return null;
+                                const datasetLabel = context.dataset.label;
+                                const value = context.parsed.y;
+                                let suffix = '';
+                                if (datasetLabel.includes('記憶體')) {
+                                    suffix = ' (標準化：每32GB)';
+                                } else if (datasetLabel.includes('SSD')) {
+                                    suffix = ' (標準化：每1TB)';
+                                } else if (datasetLabel.includes('CPU')) {
+                                    suffix = ' (標準化：每1000分Cinebench R23)';
+                                } else if (datasetLabel.includes('主機板')) {
+                                    suffix = ' (MB100=60標準化)';
+                                }
+                                return datasetLabel + suffix + ': $' + value.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        title: {
+                            display: true,
+                            text: '日期（周）'
+                        },
+                        ticks: {
+                            stepSize: 1,
+                            callback: function(value) {
+                                // 找到最接近的日期索引
+                                const index = weeksFromBase.findIndex(w => Math.abs(w - value) < 0.1);
+                                if (index >= 0) {
+                                    return labels[index];
+                                }
+                                return '';
+                            },
+                            maxRotation: 0,
+                            minRotation: 0
+                        },
+                        min: 0,
+                        max: Math.ceil(Math.max(...weeksFromBase))
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '標準化價格 ($)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 六邊形指標雷達圖
+        const radarLabels = ['效能', '穩定', '安全', '管理', '擴充', '成本'];
+        
+        // 評分數據（滿分10分，普通正常為5分）
+        // 注意：文書機/工作機使用Windows 11 Pro，伺服器使用Linux Ubuntu 24 LTS
+        const radarData = {
+            mis: {
+                label: 'MIS工作開發機',
+                data: [9, 8, 9, 7, 8, 4], // 效能9(Gen5 SSD頂級)、穩定8(企業碟)、安全9(Win11 Pro)、管理7(標準)、擴充8(ATX)、成本4(價格高)
+                color: 'rgb(59, 130, 246)'
+            },
+            officeEarly: {
+                label: '文書機（早期）',
+                data: [5, 5, 7, 5, 5, 8], // 效能5(標準)、穩定5(消費級)、安全7(Win11 Pro)、管理5(基本)、擴充5(M-ATX基本)、成本8(性價比高)
+                color: 'rgb(34, 197, 94)'
+            },
+            ecommerce: {
+                label: '電商工作機',
+                data: [8, 5, 7, 5, 5, 6], // 效能8(64GB高效能)、穩定5(消費級)、安全7(Win11 Pro)、管理5(基本)、擴充5(M-ATX基本)、成本6(中等)
+                color: 'rgb(168, 85, 247)'
+            },
+            server: {
+                label: '伺服器',
+                data: [6, 8, 8, 6, 9, 4], // 效能6(中階)、穩定8(NAS碟)、安全8(Linux Ubuntu 24 LTS)、管理6(標準)、擴充9(多硬碟位)、成本4(價格高)
+                color: 'rgb(239, 68, 68)'
+            },
+            officeYuTong: {
+                label: '文書機（宇童、怡晴）',
+                data: [7, 5, 7, 5, 5, 3], // 效能7(14核進階)、穩定5(消費級)、安全7(Win11 Pro)、管理5(基本)、擴充5(M-ATX基本)、成本3(記憶體漲價)
+                color: 'rgb(245, 158, 11)'
+            },
+            officeYiZheng: {
+                label: '文書機（苡爭）',
+                data: [6, 5, 7, 5, 5, 3], // 效能6(6核中階)、穩定5(消費級)、安全7(Win11 Pro)、管理5(基本)、擴充5(M-ATX基本)、成本3(記憶體漲價)
+                color: 'rgb(245, 158, 11)'
+            },
+            officePeiQi: {
+                label: '文書機（佩琦）',
+                data: [6, 5, 7, 5, 5, 3], // 效能6(6核中階)、穩定5(消費級)、安全7(Win11 Pro)、管理5(基本)、擴充5(M-ATX基本)、成本3(記憶體漲價)
+                color: 'rgb(245, 158, 11)'
+            }
+        };
+
+        // 創建單一雷達圖函數（用於詳細分析）
+        function createRadarChart(canvasId, data, label) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: radarLabels,
+                    datasets: [{
+                        label: label,
+                        data: data.data,
+                        borderColor: data.color,
+                        backgroundColor: data.color.replace('rgb', 'rgba').replace(')', ', 0.2)'),
+                        pointBackgroundColor: data.color,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: data.color,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 10,
+                            min: 0,
+                            ticks: {
+                                stepSize: 2,
+                                display: true
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.r + '分';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 創建綜合疊加雷達圖
+        function createCombinedRadarChart() {
+            const ctx = document.getElementById('combinedRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: radarLabels,
+                    datasets: [
+                        {
+                            label: radarData.mis.label,
+                            data: radarData.mis.data,
+                            borderColor: radarData.mis.color,
+                            backgroundColor: radarData.mis.color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                            pointBackgroundColor: radarData.mis.color,
+                            borderWidth: 2
+                        },
+                        {
+                            label: radarData.officeEarly.label,
+                            data: radarData.officeEarly.data,
+                            borderColor: radarData.officeEarly.color,
+                            backgroundColor: radarData.officeEarly.color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                            pointBackgroundColor: radarData.officeEarly.color,
+                            borderWidth: 2
+                        },
+                        {
+                            label: radarData.ecommerce.label,
+                            data: radarData.ecommerce.data,
+                            borderColor: radarData.ecommerce.color,
+                            backgroundColor: radarData.ecommerce.color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                            pointBackgroundColor: radarData.ecommerce.color,
+                            borderWidth: 2
+                        },
+                        {
+                            label: radarData.server.label,
+                            data: radarData.server.data,
+                            borderColor: radarData.server.color,
+                            backgroundColor: radarData.server.color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                            pointBackgroundColor: radarData.server.color,
+                            borderWidth: 2
+                        },
+                        {
+                            label: radarData.officeYuTong.label,
+                            data: radarData.officeYuTong.data,
+                            borderColor: radarData.officeYuTong.color,
+                            backgroundColor: radarData.officeYuTong.color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                            pointBackgroundColor: radarData.officeYuTong.color,
+                            borderWidth: 2
+                        },
+                        {
+                            label: radarData.officeYiZheng.label,
+                            data: radarData.officeYiZheng.data,
+                            borderColor: radarData.officeYiZheng.color,
+                            backgroundColor: radarData.officeYiZheng.color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                            pointBackgroundColor: radarData.officeYiZheng.color,
+                            borderWidth: 2
+                        },
+                        {
+                            label: radarData.officePeiQi.label,
+                            data: radarData.officePeiQi.data,
+                            borderColor: radarData.officePeiQi.color,
+                            backgroundColor: radarData.officePeiQi.color.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                            pointBackgroundColor: radarData.officePeiQi.color,
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 10,
+                            min: 0,
+                            ticks: {
+                                stepSize: 2,
+                                display: true
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'right',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 10,
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.r + '分';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 創建綜合疊加雷達圖
+        createCombinedRadarChart();
+    </script>
+</body>
+</html>
